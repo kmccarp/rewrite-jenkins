@@ -102,7 +102,7 @@ public class AddPluginsBom extends Recipe {
                         ).getVisitor());
                     }
                 }
-                Xml.Document d = super.visitDocument(document, executionContext);
+                Xml.Document d = super.visitDocument(document, ctx);
                 if (bomName == null) {
                     throw new IllegalStateException("Could not find jenkins.version property");
                 }
