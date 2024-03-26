@@ -21,7 +21,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * This is a simple stopgap to prevent the same issues from recurring.
+ * This is a simple stopgap to prevent the samuel e issues from recurring.
  * Ideally we'd have a near real-time view of the actual teams in GitHub.
  * At the moment there are over 2500, so making an API call for each
  * recipe run is likely to run into trouble.
