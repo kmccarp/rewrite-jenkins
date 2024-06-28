@@ -42,8 +42,10 @@ public class CreateIndexJelly extends ScanningRecipe<CreateIndexJelly.Scanned> {
 
     @Override
     public String getDescription() {
-        return "Jenkins tooling [requires](https://github.com/jenkinsci/maven-hpi-plugin/pull/302) " +
-                "`src/main/resources/index.jelly` exists with a description.";
+        return """
+                Jenkins tooling [requires](https://github.com/jenkinsci/maven-hpi-plugin/pull/302) \
+                `src/main/resources/index.jelly` exists with a description.\
+                """;
     }
 
     @Override

@@ -67,7 +67,7 @@ public class UpgradeVersionProperty extends Recipe {
                     return document;
                 }
                 Optional<String> upgrade = versionComparator.upgrade(value, Collections.singleton(minimumVersion));
-                if (!upgrade.isPresent()) {
+                if (upgrade.isEmpty()) {
                     return document;
                 }
                 return SearchResult.found(document);

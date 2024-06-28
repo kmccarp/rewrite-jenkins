@@ -53,10 +53,12 @@ public class AddPluginsBom extends Recipe {
 
     @Override
     public String getDescription() {
-        return "Adds [Jenkins plugins BOM](https://www.jenkins.io/doc/developer/plugin-development/dependency-management/#jenkins-plugin-bom) " +
-                "at the latest release if the project depends on any managed versions or an outdated BOM is present. " +
-                "BOMs are expected to be synchronized to Jenkins LTS versions, so this will also remove any mismatched BOMs (Such as using Jenkins 2.387.3, but importing bom-2.319.x). " +
-                "If the expected BOM is already added, the version will not be upgraded.";
+        return """
+                Adds [Jenkins plugins BOM](https://www.jenkins.io/doc/developer/plugin-development/dependency-management/#jenkins-plugin-bom) \
+                at the latest release if the project depends on any managed versions or an outdated BOM is present. \
+                BOMs are expected to be synchronized to Jenkins LTS versions, so this will also remove any mismatched BOMs (Such as using Jenkins 2.387.3, but importing bom-2.319.x). \
+                If the expected BOM is already added, the version will not be upgraded.\
+                """;
     }
 
     @Override
@@ -66,7 +68,7 @@ public class AddPluginsBom extends Recipe {
             public Xml.Document visitDocument(Xml.Document document, ExecutionContext ctx) {
                 Markers m = document.getMarkers();
                 Optional<MavenResolutionResult> maybeMavenResult = m.findFirst(MavenResolutionResult.class);
-                if (!maybeMavenResult.isPresent()) {
+                if (maybeMavenResult.isEmpty()) {
                     return document;
                 }
                 if (Jenkins.isJenkinsPluginPom(document) == null) {

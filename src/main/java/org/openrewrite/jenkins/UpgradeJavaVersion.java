@@ -46,8 +46,10 @@ public class UpgradeJavaVersion extends Recipe {
 
     @Override
     public String getDescription() {
-        return "Upgrades the version of java specified in Jenkins groovy scripts. " +
-               "Will not downgrade if the version is newer than the specified version.";
+        return """
+               Upgrades the version of java specified in Jenkins groovy scripts. \
+               Will not downgrade if the version is newer than the specified version.\
+               """;
     }
 
     @Override
