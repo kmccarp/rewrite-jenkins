@@ -116,7 +116,7 @@ public class UpgradeJavaVersion extends Recipe {
                         .parse("java_version = '" + (distribution == null ? "" : distribution) + version + "'")
                         .findFirst()
                         .map(G.CompilationUnit.class::cast)
-                        .map(cu -> cu.getStatements().get(0))
+                        .map(cu -> cu.getStatements().getFirst())
                         .map(J.Assignment.class::cast)
                         .orElse(null);
                 if (as == null) {

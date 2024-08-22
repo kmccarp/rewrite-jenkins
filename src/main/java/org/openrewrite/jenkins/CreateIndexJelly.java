@@ -24,7 +24,6 @@ import org.openrewrite.text.PlainTextParser;
 import org.openrewrite.xml.tree.Xml;
 
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.*;
 
 import static java.util.Objects.requireNonNull;
@@ -62,7 +61,7 @@ public class CreateIndexJelly extends ScanningRecipe<CreateIndexJelly.Scanned> {
                 continue;
             }
             parser.parse(plugin.contents())
-                    .map(brandNewFile -> (PlainText) brandNewFile.withSourcePath(Paths.get(plugin.indexJellyPath)))
+                    .map(brandNewFile -> (PlainText) brandNewFile.withSourcePath(Path.of(plugin.indexJellyPath)))
                     .forEach(generated::add);
         }
         return generated;

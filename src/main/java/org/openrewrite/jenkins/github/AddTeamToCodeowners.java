@@ -29,7 +29,6 @@ import org.openrewrite.xml.XPathMatcher;
 import org.openrewrite.xml.tree.Xml;
 
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -86,7 +85,7 @@ public class AddTeamToCodeowners extends ScanningRecipe<AddTeamToCodeowners.Scan
         PlainTextParser parser = new PlainTextParser();
         String line = "* " + acc.teamName() + "\n";
         return parser.parse(line)
-                .map(brandNewFile -> (PlainText) brandNewFile.withSourcePath(Paths.get(FILE_PATH)))
+                .map(brandNewFile -> (PlainText) brandNewFile.withSourcePath(Path.of(FILE_PATH)))
                 .collect(Collectors.toList());
     }
 
